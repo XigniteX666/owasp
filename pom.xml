@@ -13,6 +13,14 @@
     <artifactId>owasp</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <sonar.projectKey>XigniteX666_owasp</sonar.projectKey>
+        <sonar.organization>xignitex666</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.login>104d568ffe42420f18663ea5574786f6c5f77c20</sonar.login>
+    </properties>
+
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
