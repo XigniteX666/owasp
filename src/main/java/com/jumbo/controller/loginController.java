@@ -2,36 +2,49 @@ package com.jumbo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.*;
 
-
+@RestController
 public class loginController {
 
     @GetMapping("/login")
-    public boolean login(@RequestParam(value = "username" ) String userName, @RequestParam(value="password") String password){
+    public boolean login(@RequestParam(value = "username") String userName, @RequestParam(value = "password") String password) {
+
+        long StartTime = System.currentTimeMillis();
         String regex = "(a+)+b";
-        if(userName.matches(regex)){
-            String query = "SELECT * from users where username = " + userName + " AND password = " + password;
+        String regexSafe = "a+b";
+        if (userName.matches(regexSafe)) {
+            return true;
+        }
+        System.out.println("time in ms: " + (System.currentTimeMillis() - StartTime));
+        return false;
+    }
 
-            String url = "jdbc:msql://localhost/Demo";
-            Connection conn;
+    @GetMapping("/userlookup")
+    public boolean searchUser(@RequestParam(value = "userid") String userId) {
+        String query = "SELECT * from users where userid = " + userId;
 
-            try {
-                conn = DriverManager.getConnection(url,"","");
-                Statement statement = conn.createStatement();
-                ResultSet rs = statement.executeQuery(query);
+        String url = "jdbc:msql://localhost/Demo";
+        String dbUser = "";
+        String dbPassword = "";
 
-                conn.close();
-                while ( rs.next() ) {
-                    String lastName = rs.getString("Lname");
-                    System.out.println(lastName);
-                    return true;
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
+        try (Connection conn = DriverManager.getConnection(url, dbUser, dbPassword); Statement statement = conn.createStatement()) {
+
+            ResultSet rs = statement.executeQuery(query);
+
+            conn.close();
+            while (rs.next()) {
+                String lastName = rs.getString("Lname");
+                System.out.println(lastName);
+                rs.close();
+                return true;
             }
+        }catch (SQLException ex) {
         }
         return false;
     }
+
 }
+
