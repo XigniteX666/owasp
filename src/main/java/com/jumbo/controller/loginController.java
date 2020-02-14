@@ -19,7 +19,7 @@ public class loginController {
         if (userName.matches(regex)) {
             result = true;
         }
-        System.out.println("time in ms: " + (System.currentTimeMillis() - StartTime));
+        System.out.println("Time in ms: " + (System.currentTimeMillis() - StartTime));
         return result;
     }
 
