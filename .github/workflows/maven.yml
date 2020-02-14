@@ -1,6 +1,12 @@
 name: code analysis
 
-on: [push, pull_request]
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -16,4 +22,4 @@ jobs:
     - name: Build with Maven
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: mvn verify sonar:sonar
+      run: mvn verify pmd:pmd sonar:sonar
