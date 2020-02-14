@@ -13,13 +13,14 @@ public class loginController {
     public boolean login(@RequestParam(value = "username") String userName, @RequestParam(value = "password") String password) {
 
         long StartTime = System.currentTimeMillis();
-        String regex = "(a+)+b";
-        String regexSafe = "a+b";
+        boolean result = false;
+        String regex = "(a+)+s";
+        String regexSafe = "a+s";
         if (userName.matches(regex)) {
-            return true;
+            result = true;
         }
         System.out.println("time in ms: " + (System.currentTimeMillis() - StartTime));
-        return false;
+        return result;
     }
 
     @GetMapping("/userlookup")
