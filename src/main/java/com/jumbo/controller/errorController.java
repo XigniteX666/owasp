@@ -13,4 +13,15 @@ public class errorController {
         return result;
     }
 
+    public int userControlledData(@RequestParam(value="number") String input){
+        int data;
+
+        if (input != null) {
+            data = Integer.parseInt(input.trim());
+        } else {
+            data = 0;
+        }
+
+        return data * 10;
+    }
 }
