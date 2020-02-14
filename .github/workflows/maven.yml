@@ -18,4 +18,6 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
+      env:
+        GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
       run: mvn verify sonar:sonar
