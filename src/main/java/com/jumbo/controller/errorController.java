@@ -12,7 +12,7 @@ public class errorController {
         long result = number *number;
         return result;
     }
-
+    @GetMapping("/input")
     public int userControlledData(@RequestParam(value="number") String input){
         int data;
 
