@@ -15,7 +15,7 @@ public class loginController {
         long StartTime = System.currentTimeMillis();
         boolean result = false;
         String regex = "(a+)+s";
-        String regexSafe = "a+s";
+        //String regexSafe = "a+s";
         if (userName.matches(regex)) {
             result = true;
         }
