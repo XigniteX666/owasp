@@ -29,13 +29,4 @@ public class ErrorController {
         return data * 10;
     }
 
-    public void test(Socket socket){
-        try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            builder.parse(socket.getInputStream()); //unsafe
-        }catch (Exception e){
-
-        }
-    }
 }
