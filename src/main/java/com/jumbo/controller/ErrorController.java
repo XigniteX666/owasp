@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class errorController {
+public class ErrorController {
 
     @GetMapping("/widercasting")
     public long cast(@RequestParam(value = "number") int number) {
         long result = number *number;
-        return result;
+        return number * number;
     }
     @GetMapping("/input")
     public int userControlledData(@RequestParam(value="number") String input){

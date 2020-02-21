@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.sql.*;
 
 @RestController
-public class loginController {
+public class LoginController {
 
     @GetMapping("/login")
     public boolean login(@RequestParam(value = "username") String userName, @RequestParam(value = "password") String password) {
