@@ -1,30 +1,16 @@
 package com.jumbo.utils;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.Serializable;
+import java.io.*;
 
 public class JavaDeserializer {
     public static void main(String[] args) throws Exception{
         System.out.println("Starting");
-        FileInputStream fis = new FileInputStream("/tmp/normalObj.serial");
+        FileInputStream fis = new FileInputStream("c:/temp/normalObj.serial");
         ObjectInputStream ois = new ObjectInputStream(fis);
 
-        NormalObj unuserObj = (NormalObj) ois.readObject();
+        VulnObj unuserObj = (VulnObj) ois.readObject();
+        unuserObj.divide();
         ois.close();
-
-
     }
 }
 
-class NormalObj implements Serializable{
-    public String name;
-    public NormalObj(String name){
-        this.name = name;
-    }
-    private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException{
-        in.defaultReadObject();
-        System.out.println(this.name);
-    }
-}

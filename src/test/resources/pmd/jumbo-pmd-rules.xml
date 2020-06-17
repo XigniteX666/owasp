@@ -632,7 +632,7 @@ VariableInitializer/Expression/PrimaryExpression/PrimaryPrefix/Literal[string-le
 
     <rule name="AvoidModelMapAsRenderParameter" class="net.sourceforge.pmd.lang.rule.XPathRule" deprecated="false" dfa="false" language="java" message="A ModelMap or @ModelAttribute is used as parameter of a portlet render method and implicitely put in the session." typeResolution="true"
           externalInfoUrl="https://jumbo-supermarkten.atlassian.net/wiki/spaces/PD//Java+Code+Performance#JavaCodePerformance-TMSU11">
-        <description>Problem: ModelMaps are rather large objects containing explicitly added data and administrative data from Spring. They are added to the Portlet session implicitly. They stay in the session for some time: during session activity and 30 minutes (HTTP timeout) after it, in case the user does not exit explicitly. They occupy heap space during that time, for every user.&#13;
+        <description>Problem: ModelMaps are rather large objects containing explicitly added data and administrative data from Spring. They are added to the Portlet session implicitly. They stay in the session for some time: during session activity and 30 minutes (HTTP timeout) after it, in case the student does not exit explicitly. They occupy heap space during that time, for every student.&#13;
             Solution: Remove the ModelMap from the render method parameter list and create a new local ModelMap to use in the render request scope.
             (jpinpoint-rules)</description>
         <priority>2</priority>
@@ -1311,9 +1311,9 @@ MethodDeclaration//LocalVariableDeclaration/Type/ReferenceType/ClassOrInterfaceT
 
     <rule name="HttpClientBuilderWithoutDisableConnectionState" class="net.sourceforge.pmd.lang.rule.XPathRule" deprecated="false" dfa="false" language="java" message="A HttpClient builder is used and disableConnectionState is not called. HTTP client tracks connection state while using TLS" typeResolution="true"
           externalInfoUrl="https://jumbo-supermarkten.atlassian.net/wiki/spaces/PD//Java+Code+Performance#JavaCodePerformance-IBI07">
-        <description>Problem: NTLM authenticated connections and SSL/TLS connections with client certificate authentication are stateful: they have a specific user identity/security context per session. If HttpClients have enabled connection state tracking which is the default, established TLS connections will not be reused because it is assumed that the user identity or security context may differ.
+        <description>Problem: NTLM authenticated connections and SSL/TLS connections with client certificate authentication are stateful: they have a specific student identity/security context per session. If HttpClients have enabled connection state tracking which is the default, established TLS connections will not be reused because it is assumed that the student identity or security context may differ.
             Then performance will suffer due to a full TLS handshake for each request.&#13;
-            Solution: HttpClients should disable connection state tracking in order to reuse TLS connections, since service calls for one pool have the same user identity/security context for all sessions. (jpinpoint-rules)</description>
+            Solution: HttpClients should disable connection state tracking in order to reuse TLS connections, since service calls for one pool have the same student identity/security context for all sessions. (jpinpoint-rules)</description>
         <priority>2</priority>
         <properties>
             <property name="version" value="2.0"/>
@@ -1406,7 +1406,7 @@ count(ancestor::ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration/MethodDecla
 
     <rule name="MDCPutWithoutRemove" message="MDC put is used without finally remove." class="net.sourceforge.pmd.lang.rule.XPathRule" deprecated="false" dfa="false" language="java" typeResolution="true" externalInfoUrl="https://jumbo-supermarkten.atlassian.net/wiki/spaces/PD//Java+Code+Performance#JavaCodePerformance-IL04">
         <description>
-            MDC values are added for logging, but not removed. Problem: MDC values can leak to other user transactions (requests) and log incorrect information. Solution: remove the MDC value in a finally clause.
+            MDC values are added for logging, but not removed. Problem: MDC values can leak to other student transactions (requests) and log incorrect information. Solution: remove the MDC value in a finally clause.
             (jpinpoint-rules)</description>
         <properties>
             <property name="version" value="2.0"/>

@@ -3,8 +3,11 @@
         <!ELEMENT foo ANY >
         <!ENTITY xxe SYSTEM "file:///c:/temp/passwords.txt" >]>
 <class>
-    <student rollno = "393">
+    <student>
+        <id>1</id>
         <firstname>&xxe;</firstname>
         <lastname></lastname>
+        <nickname></nickname>
+        <marks></marks>
     </student>
 </class>
