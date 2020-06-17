@@ -24,6 +24,8 @@ public class ValidatorController {
 
         if(matcher.find()){
             result =true;
+        }else{
+            
         }
 
         System.out.println("Time in ms: " + (System.currentTimeMillis() - StartTime));
