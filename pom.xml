@@ -19,7 +19,7 @@
         <sonar.organization>xignitex666</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.login>734cb951d0a00e0a1028616f1138bc57e6a1c30b</sonar.login>
-        <pmd.version>6.20.0</pmd.version>
+        <pmd.version>6.27.0</pmd.version>
     </properties>
 
     <dependencies>
