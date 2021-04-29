@@ -1,0 +1,40 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: net.sourceforge.pmd:pmd-jsp
+    versions:
+    - 6.30.0
+    - 6.31.0
+    - 6.32.0
+    - 6.33.0
+  - dependency-name: net.sourceforge.pmd:pmd-javascript
+    versions:
+    - 6.30.0
+    - 6.31.0
+    - 6.32.0
+    - 6.33.0
+  - dependency-name: net.sourceforge.pmd:pmd-java
+    versions:
+    - 6.30.0
+    - 6.31.0
+    - 6.32.0
+    - 6.33.0
+  - dependency-name: net.sourceforge.pmd:pmd-core
+    versions:
+    - 6.30.0
+    - 6.31.0
+    - 6.32.0
+    - 6.33.0
+  - dependency-name: org.springframework.boot:spring-boot-starter-parent
+    versions:
+    - 2.4.2
+    - 2.4.3
+    - 2.4.4
+  - dependency-name: org.projectlombok:lombok
+    versions:
+    - 1.18.18
